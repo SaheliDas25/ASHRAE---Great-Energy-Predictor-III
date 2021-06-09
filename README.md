@@ -13,3 +13,12 @@ prediction of metered building energy usage i n the f ollowing areas: chilled wa
 water, a nd steam meters. The competitors were provided with over 20 million points of training
 data from 2,380 energy meters collected for 1,448 buildings from 16 sources. The data comes
 from over 1,000 buildings over a three-year timeframe.
+
+Dataset: Dataset can be downloaded from https://www.kaggle.com/c/ashrae-energy-prediction/data
+
+Dataset Development:
+A majority of the data sites were universities; therefore, the most common building type i s
+education. The primary use type of buildings corresponds to the categories found i n the
+EnergyStar building benchmarking system. Around 73% of the data were from buildings on
+university campus sites (1058 buildings) and the remaining 27% of the sites were from city-wide
+municipal and healthcare building repositories ( 390 buildings)
