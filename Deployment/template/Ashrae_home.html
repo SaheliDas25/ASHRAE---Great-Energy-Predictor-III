@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<div align='center'>
+<h3>Ashrae</h3>
+</div>
+</head>
+<div></div>
+<body>
+	<div align = 'center'>
+		<form action="/predict" method="POST">
+		<table>
+			<tr>
+				<label align = 'Left'>Building Id:</label>
+				<input name="building_id" type='text' id='Building_Id'></input>
+				<label align = 'Left' for="meter_type">Meter:</label>
+			    <select name="meter" id="meter_type">
+					<option value=0>Electricity</option>
+					<option value=1>Chilled Water</option>
+					<option value=2>Steam</option>
+					<option value=3>Hot Water</option>
+			    </select>
+			</tr>
+			</br></br>
+			<tr>
+				<label align = 'Left'>TimeStamp:</label>
+				<input name="timestamp" title='Input Date' type='datetime-local' id='TimeStamp' ></input>
+				<label align = 'Left'>Site Id:</label>
+				<select name="site_id" id="site_id">
+					<option value=0>0</option>
+					<option value=1>1</option>
+					<option value=2>2</option>
+					<option value=3>3</option>
+					<option value=4>4</option>
+					<option value=5>5</option>
+					<option value=6>6</option>
+					<option value=7>7</option>
+					<option value=8>8</option>
+					<option value=9>9</option>
+					<option value=10>10</option>
+					<option value=11>11</option>
+					<option value=12>12</option>
+					<option value=13>13</option>
+					<option value=14>14</option>
+					<option value=15>15</option>
+				</select>
+			</tr>
+			</br></br>
+			<tr>
+				<label align = 'Left' for="Primary_use">Primary Use:</label>
+				  <select name="primary_use" id="Primary_use">
+					<option value='Education'>Education</option>
+					<option value='Office'>Office</option>
+					<option value='Entertainment/public assembly'>Entertainment/public assembly</option>
+					<option value='Public services'>Public services</option>
+					<option value='Lodging/residential'>Lodging/residential</option>
+					<option value='Other'>Other</option>
+					<option value='Healthcare'>Healthcare</option>
+					<option value='Parking'>Parking</option>
+					<option value='Warehouse/storage'>Warehouse/storage</option>
+					<option value='Manufacturing/industrial'>Manufacturing/industrial</option>
+					<option value='Retail'>Retail</option>
+					<option value='Services'>Services</option>
+					<option value='Technology/science'>Technology/science</option>
+					<option value='Food sales and service'>Food sales and service</option>
+					<option value='Utility'>Utility</option>
+					<option value='Religious worship'>Religious worship</option>
+				  </select>
+				<label align = 'Left'>Square Feet:</label>
+				<input name = 'square_feet' type='text' id='Square_Feet'></input>
+			</tr>
+			</br></br>
+			<tr>
+				<label align = 'Left'>Year Built:</label>
+				<Select name= 'year_built' id = 'Year_built'>
+					<option value='None'>None</option>
+				</Select>
+				<label align = 'Left'>Floor Count:</label>
+				<input name = 'floor_count' type='text'></input>
+			</tr>
+			</br></br>
+			<tr>
+				<label align = 'Left'>Air Temperature:</label>
+				<input name = 'air_temperature' type='text'></input>
+				<label align = 'Left'>Cloud Coverage:</label>
+				<input name = 'cloud_coverage' type='text'></input>
+			</tr>
+			</br></br>
+			<tr>
+				<label align = 'Left'>Dew Temperature:</label>
+				<input name = 'dew_temperature' type='text'></input>
+				<label align = 'Left'>Precip Depth 1 HR:</label>
+				<input name = 'precip_depth_1_hr' type='text'></input>
+			</tr>
+			</br></br>
+			<tr>
+				<label align = 'Left'>Sea Level Pressure:</label>
+				<input name = 'sea_level_pressure' type='text'></input>
+				<label align = 'Left'>Wind Direction:</label>
+				<input name = 'wind_direction' type='text'></input>
+			</tr>
+			</br></br>
+			<tr>
+				<label align = 'Left'>Wind Speed:</label>
+				<input name = 'wind_speed' type='text'></input>
+			</tr>
+			</br></br>
+			<tr>
+				<input title='Submit' type="submit" value="Submit" onclick = validationFields();></input>
+			</tr>
+			</table>
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        //Reference the DropDownList.
+        var year_built = document.getElementById("Year_built");
+ 
+        //Determine the Current Year.
+        var currentYear = (new Date()).getFullYear();
+
+        for (var i = 1950; i <= currentYear; i++) {
+            var option = document.createElement("OPTION");
+            option.innerHTML = i;
+            option.value = i;
+			
+            year_built.appendChild(option);
+        }
+    };
+	function validationFields()
+	{
+		var Building_Id = document.getElementById('Building_Id').value
+		var TimeStamp = document.getElementById('TimeStamp').value
+		var site_id = document.getElementById('site_id').value
+		var Primary_use = document.getElementById('Primary_use').value
+		var Square_Feet = document.getElementById('Square_Feet').value
+		
+		if(Building_Id == '' || Building_Id == null)
+		{
+			alert('Please provide input to Building_Id')
+			event.preventDefault();
+		}
+		else if(TimeStamp == '' || TimeStamp == null)
+		{
+			alert('Please provide input to TimeStamp')
+			event.preventDefault();
+		}
+		else if(site_id == '' || site_id == null)
+		{
+			alert('Please provide input to site_id')
+			event.preventDefault();
+		}
+		else if(Primary_use == '' || Primary_use == null)
+		{
+			alert('Please provide input to Primary_use')
+			event.preventDefault();
+		}
+		else if(Square_Feet == '' || Square_Feet == null)
+		{
+			alert('Please provide input to Square_Feet')
+			event.preventDefault();
+		}
+			
+		return None;
+	}
+</script>
+</html>
